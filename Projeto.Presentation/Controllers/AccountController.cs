@@ -155,5 +155,13 @@ namespace Projeto.Presentation.Controllers
             }
             return model;
         }
+
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync
+                (CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Login");
+        }
     }
 }

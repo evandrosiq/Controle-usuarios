@@ -1,0 +1,54 @@
+﻿@model List<Projeto.Data.Entities.Usuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Consulta de Usuários</h2>
+<a href="/AreaRestrita/Index">Voltar</a>
+<hr />
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Perfil de Acesso</th>
+            <th>Data de Criacão</th>
+            <th>Status</th>           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdUsuario</td>
+                <td>@item.Nome</td>
+                <td>@item.Email</td>
+                <td>@item.Perfil.Nome</td>
+                <td>@item.DataCriacao.ToString("dd/MM/yyyy")</td>
+                <td>
+                    @if (item.Status == 1)
+                    {
+                        <span class="badge badge-success">Ativo</span>
+                    } else
+                    {
+                        <span class="badge badge-danger">Inativo</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                Quantidade de Usuários Cadastrados: @Model.Count
+            </td>
+        </tr>
+    </tfoot>
+</table> 
+
+
+
