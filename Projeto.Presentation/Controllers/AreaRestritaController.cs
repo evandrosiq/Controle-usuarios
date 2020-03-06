@@ -40,6 +40,7 @@ namespace Projeto.Presentation.Controllers
             return View(usuario);
         }
 
+        [Authorize(Roles = "Pessoa Juridica")]
         public IActionResult Usuarios()
         {
             var usuarios = new List<Usuario>();
@@ -54,8 +55,6 @@ namespace Projeto.Presentation.Controllers
             }
 
             return View(usuarios);
-        }
-
-
+        }   
     }
 }

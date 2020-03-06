@@ -13,6 +13,10 @@
 
 <ul>
     <li> <a href="/AreaRestrita/MinhaConta">Minha Conta de Usuário</a> </li>
+
+    @if (User.IsInRole("Pessoa Juridica"))
+    {
     <li> <a href="/AreaRestrita/Usuarios">Consultar todos os Usuários do Sistema</a> </li>
+    }
 </ul>
 
